@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <bean id="FirstLetterService" class="com.engine.service.FirstLetterService" name="FirstLetterService"></bean>
+    <bean id="TextSizeService" class="com.engine.service.TextSizeService" name="TextSizeService"></bean>
+    
+    <bean id="pipelineManager" class="com.engine.pipeline.PipelineManager">
+        
+        <property name="handlers">
+        <!--list of handlers applied-->
+            <list>
+                <ref bean="FirstLetterService"/>
+                <ref bean="TextSizeService"/>
+            </list>
+        </property>		
+        
+    </bean>
+    
+</beans>
